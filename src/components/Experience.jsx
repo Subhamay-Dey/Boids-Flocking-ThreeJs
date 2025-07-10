@@ -1,6 +1,7 @@
 import { Environment, OrbitControls, SoftShadows } from "@react-three/drei";
 
 import { useAtom } from "jotai";
+import { Boids } from "./Boids";
 import { themeAtom, THEMES } from "./UI";
 
 export const Experience = () => {
@@ -10,6 +11,7 @@ export const Experience = () => {
     <>
       <OrbitControls />
 
+      <Boids />
 
       {/* LIGHTS */}
       <SoftShadows size={15} focus={1.5} samples={12} />
