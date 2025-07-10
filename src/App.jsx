@@ -1,10 +1,12 @@
-import React from 'react';
+import { Loader } from "@react-three/drei";
+import { UI } from "./components/UI";
 
 function App() {
 
   return (
     <>
-      <h1>Welcome to My React App</h1>
+      <UI />
+      <Loader />
     </>
   );
 }
