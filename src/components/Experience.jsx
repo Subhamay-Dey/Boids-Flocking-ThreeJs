@@ -4,11 +4,12 @@ import { useAtom } from "jotai";
 import { Boids } from "./Boids";
 import { themeAtom, THEMES } from "./UI";
 import { useControls } from "leva";
+import { DoubleSide } from "three";
 
 export const Experience = () => {
   const [theme] = useAtom(themeAtom);
 
-  const bondaries = useControls(
+  const boundaries = useControls(
     "Boundaries",
     {
       debug: true,
@@ -24,6 +25,15 @@ export const Experience = () => {
       <OrbitControls />
 
       <Boids />
+      <mesh visible={boundaries.debug}>
+        <boxGeometry args={[boundaries.x, boundaries.y, boundaries.z]}/>
+        <meshStandardMaterial
+          color="orange"
+          transparent
+          opacity={0.5}
+          side={DoubleSide}
+        />
+      </mesh>
 
       {/* LIGHTS */}
       <SoftShadows size={15} focus={1.5} samples={12} />
