@@ -3,9 +3,21 @@ import { Environment, OrbitControls, SoftShadows } from "@react-three/drei";
 import { useAtom } from "jotai";
 import { Boids } from "./Boids";
 import { themeAtom, THEMES } from "./UI";
+import { useControls } from "leva";
 
 export const Experience = () => {
   const [theme] = useAtom(themeAtom);
+
+  const bondaries = useControls(
+    "Boundaries",
+    {
+      debug: true,
+      x: {value: 12, min: 0, max: 40},
+      y: {value: 8, min: 0, max: 40},
+      z: {value: 20, min: 0, max: 40},
+    },
+    {collapsed: true}
+  )
 
   return (
     <>
