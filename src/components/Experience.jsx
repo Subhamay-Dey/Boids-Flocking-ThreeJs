@@ -5,6 +5,7 @@ import { Boids } from "./Boids";
 import { themeAtom, THEMES } from "./UI";
 import { useControls } from "leva";
 import { DoubleSide } from "three";
+import { useState } from "react";
 
 export const Experience = () => {
   const [theme] = useAtom(themeAtom);
@@ -18,7 +19,18 @@ export const Experience = () => {
       z: {value: 20, min: 0, max: 40},
     },
     {collapsed: true}
-  )
+  );
+
+  const [size, setSize] = useState([window.innerWidth, window.innerHeight])
+
+  const scaleX = Math.max(0.5, size[0] / 1920);
+  const scaleY = Math.max(0.5, size[1] / 1080);
+  
+  const responsiveBoundaries = {
+    x: boundaries.x * scaleX,
+    y: boundaries.y * scaleY,
+    z: boundaries.z,
+  }
 
   return (
     <>
