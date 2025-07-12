@@ -5,7 +5,7 @@ import { Boids } from "./Boids";
 import { themeAtom, THEMES } from "./UI";
 import { useControls } from "leva";
 import { DoubleSide } from "three";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Experience = () => {
   const [theme] = useAtom(themeAtom);
@@ -32,13 +32,25 @@ export const Experience = () => {
     z: boundaries.z,
   }
 
+  useEffect(() => {
+    let timeout;
+    function updateSize() {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setSize([window.innerWidth, window.innerHeight]);
+      }, 50);
+    }
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, [])
+
   return (
     <>
       <OrbitControls />
 
       <Boids />
       <mesh visible={boundaries.debug}>
-        <boxGeometry args={[boundaries.x, boundaries.y, boundaries.z]}/>
+        <boxGeometry args={[responsiveBoundaries.x, responsiveBoundaries.y, responsiveBoundaries.z]}/>
         <meshStandardMaterial
           color="orange"
           transparent
