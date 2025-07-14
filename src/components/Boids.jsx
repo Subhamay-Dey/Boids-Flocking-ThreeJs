@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { Vector3 } from "three";
 import { SkeletonUtils } from "three-stdlib";
 import { themeAtom, THEMES } from "./UI";
-import { useControls } from "leva";
+import { useControls } from "leva"
 
 export const Boids = ({}) => {
   const [theme] = useAtom(themeAtom);
