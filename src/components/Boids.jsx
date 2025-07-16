@@ -13,7 +13,22 @@ export const Boids = ({}) => {
   const {} = useControls(
     "General settings",
     {
-
+      "Boids": {
+        value: true,
+        disabled: true,
+      },
+      "Boids count": {
+        value: 1,
+        min: 1,
+        max: 1000,
+        step: 1,
+      },
+      "Boids speed": {
+        value: 1,
+        min: 0.1,
+        max: 10,
+        step: 0.1,
+      },
     },
   )
   return (
