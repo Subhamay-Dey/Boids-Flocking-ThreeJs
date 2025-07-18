@@ -30,6 +30,10 @@ export const Boids = ({}) => {
         step: 0.1,
       },
     },
+    {
+      collapsed: true,
+    },
+    
   )
   return (
     <>
