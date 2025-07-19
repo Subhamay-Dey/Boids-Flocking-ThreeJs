@@ -8,7 +8,7 @@ import { themeAtom, THEMES } from "./UI";
 import { useControls } from "leva"
 
 export const Boids = ({}) => {
-  const [theme] = useAtom(themeAtom);
+  const [theme] = useAtom(themeAtom)
 
   const {} = useControls(
     "General settings",
